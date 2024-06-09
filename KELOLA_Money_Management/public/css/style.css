@@ -1,0 +1,361 @@
+/********** Template CSS **********/
+:root {
+    --primary: #EB1616;
+    --white:#fff;
+    --secondary: #87cf00;
+    --light: #f4f5f9;
+    --dark: #0a0a0a;
+    --custom : rgb(206, 13, 245);
+    --bs-gray: #6c757d;
+  --bs-gray-dark: #343a40;
+  --bs-primary: #eb1616;
+  --bs-secondary: #191c24;
+  --bs-success: #198754;
+  --bs-info: #0dcaf0;
+  --bs-warning: #ffc107;
+  --bs-danger: #dc3545;
+  --bs-light: #6c7293;
+  --bs-dark: #000;
+}
+
+
+.back-to-top {
+    position: fixed;
+    display: none;
+    right: 45px;
+    bottom: 45px;
+    z-index: 99;
+}
+
+
+/*** Spinner ***/
+#spinner {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .5s ease-out, visibility 0s linear .5s;
+    z-index: 99999;
+}
+
+#spinner.show {
+    transition: opacity .5s ease-out, visibility 0s linear 0s;
+    visibility: visible;
+    opacity: 1;
+}
+
+
+/*** Button ***/
+.btn {
+    transition: .5s;
+}
+
+.btn-square {
+    width: 38px;
+    height: 38px;
+}
+
+.btn-sm-square {
+    width: 32px;
+    height: 32px;
+}
+
+.btn-lg-square {
+    width: 48px;
+    height: 48px;
+}
+
+.btn-square,
+.btn-sm-square,
+.btn-lg-square {
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: normal;
+    border-radius: 50px;
+}
+
+
+/*** Layout ***/
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 250px;
+    height: 100vh;
+    overflow-y: auto;
+    background: var(--white);
+    transition: 0.5s;
+    z-index: 999;
+}
+
+.content {
+    margin-left: 250px;
+    min-height: 100vh;
+    transition: 0.5s;
+}
+
+@media (min-width: 992px) {
+    .sidebar {
+        margin-left: 0;
+    }
+
+    .sidebar.open {
+        margin-left: -250px;
+    }
+
+    .content {
+        width: calc(100% - 250px);
+    }
+
+    .content.open {
+        width: 100%;
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .sidebar {
+        margin-left: -250px;
+    }
+
+    .sidebar.open {
+        margin-left: 0;
+    }
+
+    .content {
+        width: 100%;
+        margin-left: 0;
+    }
+}
+
+
+/*** Navbar ***/
+.sidebar .navbar .navbar-nav .nav-link {
+    padding: 7px 20px;
+    color: var(--dark);
+    font-weight: 500;
+    border-left: 3px solid var(--light);
+    border-radius: 0 30px 30px 0;
+    outline: none;
+}
+
+.sidebar .navbar .navbar-nav .nav-link:hover,
+.sidebar .navbar .navbar-nav .nav-link.active {
+    color: var(--dark);
+    background: var(--secondary);
+    border-color: var(--dark);
+}
+
+.sidebar .navbar .navbar-nav .nav-link i {
+    width: 40px;
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--light);
+    border-radius: 400px;
+}
+
+.sidebar .navbar .navbar-nav .nav-link:hover i,
+.sidebar .navbar .navbar-nav .nav-link.active i {
+    background: var(--light);
+}
+
+.sidebar .navbar .dropdown-toggle::after {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    border: none;
+    content: "\f107";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    transition: .5s;
+}
+
+.sidebar .navbar .dropdown-toggle[aria-expanded=true]::after {
+    transform: rotate(-180deg);
+}
+
+.sidebar .navbar .dropdown-item {
+    padding-left: 25px;
+    border-radius: 0 30px 30px 0;
+    color: var(--dark);
+}
+
+.sidebar .navbar .dropdown-item:hover,
+.sidebar .navbar .dropdown-item.active {
+    background: var(--secondary);
+}
+
+.content .navbar .navbar-nav .nav-link {
+    margin-left: 25px;
+    padding: 12px 0;
+    color: var(--bs-light);
+    outline: none;
+}
+
+.content .navbar .navbar-nav .nav-link:hover,
+.content .navbar .navbar-nav .nav-link.active {
+    color: var(--secondary);
+}
+
+.content .navbar .sidebar-toggler,
+.content .navbar .navbar-nav .nav-link i {
+    width: 40px;
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--dark);
+    border-radius: 40px;
+}
+
+.content .navbar .dropdown-item {
+    color: var(--bs-dark);
+}
+
+.content .navbar .dropdown-item:hover,
+.content .navbar .dropdown-item.active {
+    background: var(--secondary);
+}
+
+.content .navbar .dropdown-toggle::after {
+    margin-left: 6px;
+    vertical-align: middle;
+    border: none;
+    content: "\f107";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    transition: .5s;
+}
+
+.content .navbar .dropdown-toggle[aria-expanded=true]::after {
+    transform: rotate(-180deg);
+}
+
+@media (max-width: 575.98px) {
+    .content .navbar .navbar-nav .nav-link {
+        margin-left: 15px;
+    }
+}
+
+/* styles.css */
+
+/* Custom styling for transaction statement */
+#transactionStatementTable {
+    width: 100%;
+}
+
+#transactionStatementTable th,
+#transactionStatementTable td {
+    text-align: center;
+    vertical-align: middle !important;
+}
+
+.bg-secondary {
+    background-color: #ffffff !important;
+}
+
+.table {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 1rem;
+    background-color: transparent;
+}
+
+.table th,
+.table td {
+    padding: 0.75rem;
+    vertical-align: top;
+    border-top: 1px solid #dee2e6;
+}
+
+.table thead th {
+    vertical-align: bottom;
+    border-bottom: 2px solid #dee2e6;
+}
+
+.table tbody + tbody {
+    border-top: 2px solid #dee2e6;
+}
+
+/* Custom styling for month selector and button */
+.month-selector {
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+#month {
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 2px solid #28a745;
+    border-radius: 0.25rem;
+    margin-right: 0.5rem;
+    background-color: transparent;
+    color: #000000;
+    cursor: pointer;
+    appearance: none;
+}
+
+#month:hover,
+#month:focus {
+    background-color: #E9E9E9;
+}
+
+#month option {
+    padding: 0.5rem;
+    font-size: 1rem;
+    color: #333;
+}
+
+#submitBtn {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    background-color: #28a745;
+    color: #000000;
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#submitBtn:hover {
+    background-color: var(--bs-success);
+}
+
+.export-button-section {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+#exportBtn {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.excel-logo {
+    width: 24px;
+    height: 24px;
+    margin-right: 0.5rem;
+}
+
+#exportBtn:hover {
+    background-color: #218838;
+}
+
+.transaction-statement {
+    margin-bottom: 2rem; /* Adding space between statement and totals */
+}
+
+.summary-item {
+    text-align: right;
+}
+
